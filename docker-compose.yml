@@ -12,6 +12,7 @@ services:
     environment:
       CONFIG_PATH: /config
       DAE_BIN_PATH: /usr/bin/dae
+      THEME: neat
       DEBUG: yes
     volumes:
       - ${CONFIG_PATH}:/config:rw

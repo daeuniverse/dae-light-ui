@@ -18,8 +18,8 @@ class UI:
         return self.selected_theme
 
     def update_selected_theme(self, theme) -> None:
-        logger.debug(theme)
         self.selected_theme = theme
+        logger.debug(f"Theme updated - {theme}")
 
     def read_config(self) -> Any:
         with open(self.config.config_path, "r") as f:
