@@ -9,30 +9,28 @@ app = Flask(__name__, template_folder="templates")
 
 @app.route("/journal")
 def journal():
-    command = "journalctl -xu dae -n 250 --reverse"
+    command = "journalctl -xu dae -n 200 --reverse"
     output = subprocess.check_output(command.split()).decode("utf-8")
     return render_template("journal.html", output=output)
 
 
 def read_select():
-    with open("/root/dae-ui/theme", "r") as f:
-        select = f.readline()
-    return select
+    return "neat"
 
 
 def write_select(select):
-    with open("/root/dae-ui/theme", "w") as f:
+    with open("./theme", "w") as f:
         f.write(select)
 
 
 def read_config():
-    with open("/usr/local/etc/dae/config.dae", "r") as f:
+    with open("config.dae", "r") as f:
         config = f.read()
     return config
 
 
 def write_config(config):
-    with open("/usr/local/etc/dae/config.dae", "w") as f:
+    with open("config.dae", "w") as f:
         f.write(config)
 
 
@@ -69,7 +67,6 @@ def get_dae_runtime():
             days = uptime.days
             hours, remainder = divmod(uptime.seconds, 3600)
             minutes, seconds = divmod(remainder, 60)
-            # return uptime_days, uptime_hours, uptime_minutes, uptime_seconds
             return [
                 f"{days}days{hours}hour{minutes}minutes{seconds}seconds",
                 "stop",
@@ -78,10 +75,10 @@ def get_dae_runtime():
     return ["dae not started!", "start", "red"]
 
 
-def updateGeo():
-    subprocess.run(["chmod", "+x", "/root/dae-ui/install-dat-release.sh"])
-    subprocess.call(["/root/dae-ui/install-dat-release.sh"])
-    reload_dae()
+# def update_geodata():
+#     subprocess.run(["chmod", "+x", "/root/dae-ui/install-dat-release.sh"])
+#     subprocess.call(["/root/dae-ui/install-dat-release.sh"])
+#     reload_dae()
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -105,15 +102,16 @@ def index():
             restart_dae()
         elif action == "Save theme":
             write_select(select)
-        elif action == "Update geodata":
-            updateGeo()
+        # elif action == "Update geodata":
+        #     update_geodata()
 
         config = read_config()
         select = read_select()
+
     return render_template(
         "index.html", config=config, select=select, runtime=get_dae_runtime()
     )
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=True)
