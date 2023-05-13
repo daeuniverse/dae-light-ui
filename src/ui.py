@@ -36,7 +36,7 @@ class UI:
         try:
             cmd = f"/usr/bin/systemctl {state} dae.service"
             subprocess.check_output(cmd, stderr=subprocess.STDOUT, shell=True).decode()
-            msg = "dae stopped" if state == "stop" else f"dae {state}ed!"
+            msg = "dae stopped!" if state == "stop" else f"dae {state}ed!"
             self.logger.debug(msg)
         except Exception as e:
             self.logger.error(e.output.decode())
