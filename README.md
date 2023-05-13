@@ -32,18 +32,27 @@ coming soon.
 
 ## Usage
 
-Run locally
+Export envs
 
 ```bash
 export CONFIG_PATH=/etc/dae/config.dae
 export DAE_BIN_PATH=/usr/bin/dae
+```
+
+Run locally
+
+```bash
 python3 app.py
 ```
 
 Run as container
 
 ```bash
+# run
 docker compose up -d --force-recreate --build
+
+# inspect logs
+docker logs -f dae-light-ui
 ```
 
 Compile as binary
@@ -51,3 +60,7 @@ Compile as binary
 ```bash
 ./venv/bin/pyinstall app.py
 ```
+
+## TODOs
+
+- [ ] Add theming support
