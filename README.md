@@ -35,7 +35,9 @@ coming soon.
 Run locally
 
 ```bash
-CONFIG_PATH=/etc/dae/config.dae python3 app.py
+export CONFIG_PATH=/etc/dae/config.dae
+export DAE_BIN_PATH=/usr/bin/dae
+python3 app.py
 ```
 
 Run as container
