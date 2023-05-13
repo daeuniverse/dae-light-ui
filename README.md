@@ -9,7 +9,7 @@ Project Goals:
 - Easy to use, with keyboard shortcuts builtin
 - Dark mode
 
-Alternatively, please consider adopting [daed](https://github.com/v2raya/daed), which offers a better experience.
+Alternatively, please consider adopting [daed](https://github.com/v2raya/daed), which offers better experience.
 
 ## Status
 
