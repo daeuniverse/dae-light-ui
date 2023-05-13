@@ -2,7 +2,7 @@
 
 ## What this project is for
 
-A lightweight dashboard for [dae](https://github.com/v2raya/dae)
+A lightweight dashboard for [dae](https://github.com/daeuniverse/dae)
 
 Project Goals:
 
@@ -10,7 +10,7 @@ Project Goals:
 - Easy to use
 - Dark mode
 
-Alternatively, please consider adopting [daed](https://github.com/v2raya/daed), which offers better experience.
+Alternatively, please consider adopting [daed](https://github.com/daeuniverse/daed), which offers better experience.
 
 ## Status
 
