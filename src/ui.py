@@ -32,25 +32,14 @@ class UI:
         subprocess.call([self.config.dae_bin_path, "reload"])
         self.logger.info("config reloaded!")
 
-    def start_dae(self):
-        cmd = "/usr/bin/systemctl start dae.service"
-        result = subprocess.run(cmd.split(), capture_output=True)
-        if result != "":
-            self.logger.error(result.stderr.decode("utf-8"))
-
-    def stop_dae(self):
-        cmd = "/usr/bin/systemctl stop dae.service"
-        result = subprocess.run(cmd.split(), capture_output=True)
-        if result != "":
-            self.logger.error(result.stderr.decode("utf-8"))
-
-    def restart_dae(self):
-        cmd = "/usr/bin/systemctl restart dae.service"
-        result = subprocess.run(cmd.split(), capture_output=True)
-        if result != "":
-            self.logger.error(result.stderr.decode("utf-8"))
-        else:
-            self.logger.info("dae restarted!")
+    def update_dae_state(self, state):
+        try:
+            cmd = f"/usr/bin/systemctl {state} dae.service"
+            subprocess.check_output(cmd, stderr=subprocess.STDOUT, shell=True).decode()
+            msg = "dae stopped" if state == "stop" else f"dae {state}ed!"
+            self.logger.debug(msg)
+        except Exception as e:
+            self.logger.error(e.output.decode())
 
     def get_dae_runtime(self):
         process_path = "dae"

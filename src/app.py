@@ -30,11 +30,11 @@ def index():
             ui.write_config(config)
             ui.reload_dae()
         elif action == "Start":
-            ui.start_dae()
+            ui.update_dae_state("start")
         elif action == "Stop":
-            ui.stop_dae()
+            ui.update_dae_state("stop")
         elif action == "Restart":
-            ui.restart_dae()
+            ui.update_dae_state("restart")
         elif action == "Save theme":
             ui.update_selected_theme(select)
         # elif action == "Update geodata":
