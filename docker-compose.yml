@@ -4,6 +4,7 @@ version: "3.8"
 services:
   repeater:
     container_name: dae-light-ui
+    privileged: true
     build:
       context: .
     ports:
