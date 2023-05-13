@@ -1,0 +1,26 @@
+<!-- journal.html -->
+<html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+p {
+  font-size: 13px;
+}
+</style>
+<body>
+    <h6>Dae的最新200条日志:</h6>
+    <pre><p>{{ output }}</p></pre>
+	  <script>
+    $(document).ready(function() {
+      setInterval(function() {
+        $.ajax({
+          url: window.location.href,
+          type: 'GET',
+          success: function(response) {
+            $('html').html(response);
+          }
+        });
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
