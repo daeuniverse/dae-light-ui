@@ -2,11 +2,10 @@
 <html lang="en-us">
   <head>
     <meta charset="utf-8" />
-	<title>Dae的一个web管理页面</title
+	<title>Dae Lite UI</title
 	<!--codemirror必须引入的-->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.css" rel="stylesheet" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.js"></script>
-	
 	<!--引入css文件，用以支持主题-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/3024-day.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/3024-night.css">
@@ -124,9 +123,14 @@
 			width: 100px;
 			height: 30px;
 		}
-		#submit-btn {
+		#save-theme-btn {
 			font-size: 17px;
 			width: 120px;
+			height: 30px;
+		}
+		#submit-btn {
+			font-size: 17px;
+			width: 150px;
 			height: 30px;
 		}
 	</style>
@@ -138,14 +142,14 @@
 	<tr>
 	<td><img src="https://avatars.githubusercontent.com/u/126714249?s=200" width="50" height="50"></td>
 	<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-	<td><a href="https://github.com/daeuniverse/dae/blob/main/example.dae" target="_blank">完整示例</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-	<td><a href="https://github.com/daeuniverse/dae/blob/main/docs/dns.md" target="_blank">DNS示例</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-	<td><a href="https://github.com/daeuniverse/dae/blob/main/docs/routing.md" target="_blank">Routing示例</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	<td><a href="https://github.com/daeuniverse/dae/blob/main/example.dae" target="_blank">example.dae</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	<td><a href="https://github.com/daeuniverse/dae/blob/main/docs/dns.md" target="_blank">DNS example</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	<td><a href="https://github.com/daeuniverse/dae/blob/main/docs/routing.md" target="_blank">Routing example</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 	<td>{{runtime[0]}}</td>
 	<td>&nbsp;&nbsp;&nbsp;<input type="submit" name="action" value="Save">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 	<td><input type="submit" name="action" value="Restart">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 	<td><input type="submit" name="action" value="{{runtime[1]}}" id="bstart" style="background-color:{{runtime[2]}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-	<td>  &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="action" id="submit-btn" value="更新geo文件">&nbsp;&nbsp;&nbsp;
+	<td>  &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="action" id="submit-btn" value="Update geodata">&nbsp;&nbsp;&nbsp;
 	<select onchange="selectTheme()" id="select" name="select">
     <option selected="">{{ select }}</option>
     <option>3024-day</option>
@@ -213,8 +217,8 @@
     <option>yonce</option>
     <option>zenburn</option>
 </select>
-&nbsp;&nbsp;&nbsp;<input type="submit" name="action" value="保存主题">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-<td><a href="/journal" target="_blank">查看日志</a></td>
+&nbsp;&nbsp;&nbsp;<input type="submit" name="action" id="save-theme-btn" value="save theme">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><a href="/journal" target="_blank">Inspect logs</a></td>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/daeuniverse/dae" target="_blank">Github</a></td>
   </tr>
   </table> 
@@ -223,26 +227,25 @@
 	</div>
 	
 	<script type="text/javascript" >
-		//根据DOM元素的id构造出一个编辑器
 		var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-				mode: "application/xml",    //实现xml代码高亮
-				mode: "text/x-javascript", //实现javascript代码高亮
-				mode: "text/x-java", //实现Java代码高亮
-				lineNumbers: true,  //显示行号
-				theme: '{{ select }}',   //设置主题
-				lineWrapping: false, //false则超过宽带会显示水平滚动条，true不会显示
-				foldGutter: true,   //代码是否可折叠
+				mode: "application/xml",
+				mode: "text/x-javascript",
+				mode: "text/x-java",
+				lineNumbers: true,
+				theme: '{{ select }}',
+				lineWrapping: false,
+				foldGutter: true,
 				gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
-				matchBrackets: true,    //括号匹配
-				indentWithTabs: false,  //前 N*tabSize 个空格是否应替换为 N 个制表符
-				smartIndent: true,   //上下文相关缩进（即是否缩进与之前的行相同）
+				matchBrackets: true,
+				indentWithTabs: false,
+				smartIndent: true,
 				autofocus: true,
-				styleActiveLine: true, //光标所在行高亮.
+				styleActiveLine: true,
 				extraKeys:{"Ctrl-Space":"autocomplete"}
-				//readOnly: true,      //只读
+				//readOnly: true,
 		});
 		
-		editor.setSize('1700px', '800px');     //设置代码框的长宽
+		editor.setSize('1700px', '800px');     // set code block dimension
 		  var input = document.getElementById("select");
 		  function selectTheme() {
 			var theme = input.options[input.selectedIndex].textContent;
