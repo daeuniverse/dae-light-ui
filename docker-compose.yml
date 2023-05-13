@@ -17,7 +17,7 @@ services:
     volumes:
       - ${CONFIG_PATH}:/config:rw
       - ${DAE_BIN_PATH}:${DAE_BIN_PATH}
-      - /run/systemd/system:/run/systemd/system
+      - /run/systemd/system/dae.service:/run/systemd/system/dae.service
       - /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
       - /usr/bin/systemctl:/usr/bin/systemctl
       - /var/run/dae.pid:/var/run/dae.pid
