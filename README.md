@@ -15,12 +15,14 @@ coming soon.
 Run locally
 
 ```bash
-python3 app.py
+CONFIG_PATH=/etc/dae/config.dae python3 app.py
 ```
 
 Run as container
 
-TBD.
+```bash
+docker compose up -d --force-recreate --build
+```
 
 Compile as binary
 

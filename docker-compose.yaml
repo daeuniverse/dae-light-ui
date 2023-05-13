@@ -1,0 +1,18 @@
+---
+version: "3.8"
+
+services:
+  repeater:
+    container_name: dae-light-ui
+    build:
+      context: .
+    ports:
+      - 5000:5000
+    environment:
+      CONFIG_PATH: /config
+      DAE_BIN_PATH: /usr/bin/dae
+      DEBUG: yes
+    volumes:
+      - ${CONFIG_PATH}:/config:rw
+      - ${DAE_BIN_PATH}:${DAE_BIN_PATH}
+    restart: unless-stopped
