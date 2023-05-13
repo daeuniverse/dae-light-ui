@@ -6,7 +6,8 @@ A lightweight dashboard for [dae](https://github.com/v2raya/dae)
 
 Project Goals:
 
-- Easy to use, with keyboard shortcuts builtin
+- Extremely lightweight and portable
+- Easy to use
 - Dark mode
 
 Alternatively, please consider adopting [daed](https://github.com/v2raya/daed), which offers better experience.
