@@ -20,7 +20,7 @@ WORKDIR /app
 ADD requirements.txt ./
 RUN pip install -r requirements.txt
 
-COPY app.py ./
+COPY src/ ./
 RUN pyinstaller app.py
 
 # === Prod Stage === #
@@ -29,7 +29,7 @@ FROM ubuntu:latest as prod
 
 RUN apt update -y && \
     apt-get install -y --no-install-recommends \
-    ca-certificates libcap-dev libsll-dev
+    ca-certificates libcap-dev
 
 RUN apt-get clean autoclean && \
     apt-get autoremove -y && \
