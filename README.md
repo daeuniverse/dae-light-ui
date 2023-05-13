@@ -63,6 +63,6 @@ Compile as binary
 
 ## TODOs
 
-- [ ] Add theming support
+- [x] Add theming support
 - [ ] Add support to update geodate
 - [ ] Fix pid parsing at the container level

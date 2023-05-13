@@ -1,3 +1,4 @@
+import os
 import psutil
 import datetime
 import subprocess
@@ -11,13 +12,14 @@ class UI:
     def __init__(self, config: Config) -> None:
         self.logger = logger
         self.config = config
-        self.selected_theme = "neat"
+        self.selected_theme = os.getenv("THEME", "neat")
 
     def read_selected_theme(self) -> str:
         return self.selected_theme
 
     def update_selected_theme(self, theme) -> None:
         self.selected_theme = theme
+        logger.debug(f"Theme updated - {theme}")
 
     def read_config(self) -> Any:
         with open(self.config.config_path, "r") as f:
