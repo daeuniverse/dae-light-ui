@@ -25,8 +25,7 @@ RUN pyinstaller app.py
 
 # === Prod Stage === #
 
-# FROM debian:bullseye-slim as prod
-FROM ubuntu:2204 as prod
+FROM ubuntu:latest as prod
 
 RUN apt update -y && \
     apt-get install -y --no-install-recommends \
