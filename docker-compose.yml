@@ -2,7 +2,7 @@
 version: "3.8"
 
 services:
-  repeater:
+  dae-light-ui:
     container_name: dae-light-ui
     privileged: true
     build:
