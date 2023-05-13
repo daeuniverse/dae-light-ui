@@ -2,8 +2,9 @@
 version: "3.8"
 
 services:
-  repeater:
+  dae-light-ui:
     container_name: dae-light-ui
+    privileged: true
     build:
       context: .
     ports:
@@ -17,5 +18,6 @@ services:
       - ${DAE_BIN_PATH}:${DAE_BIN_PATH}
       - /run/systemd/system:/run/systemd/system
       - /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
-      - /bin/systemctl:/bin/systemctl
+      - /usr/bin/systemctl:/usr/bin/systemctl
+      - /var/run/dae.pid:/var/run/dae.pid
     restart: unless-stopped
