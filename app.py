@@ -90,10 +90,10 @@ class UI:
                 ]
         return ["dae not started!", "start", "red"]
 
-    def update_geodata(self):
-        subprocess.run(["chmod", "+x", "/root/dae-ui/install-dat-release.sh"])
-        subprocess.call(["/root/dae-ui/install-dat-release.sh"])
-        self.reload_dae()
+    # def update_geodata(self):
+    #     subprocess.run(["chmod", "+x", "/root/dae-ui/install-dat-release.sh"])
+    #     subprocess.call(["/root/dae-ui/install-dat-release.sh"])
+    #     self.reload_dae()
 
 
 @app.route("/journal")
@@ -116,18 +116,18 @@ def index():
         if action == "Save":
             ui.write_config(config)
             ui.reload_dae()
-        # elif action == "Update geodata":
-        #     update_geodata()
-        # elif action == "Start":
-        #     start_dae()
-        # elif action == "Stop":
-        #     stop_dae()
-        # elif action == "Restart":
-        #     restart_dae()
+        elif action == "Start":
+            ui.start_dae()
+        elif action == "Stop":
+            ui.stop_dae()
+        elif action == "Restart":
+            ui.restart_dae()
         elif action == "Reload":
             ui.reload_dae()
         elif action == "Save theme":
             ui.update_selected_theme(select)
+        # elif action == "Update geodata":
+        #     ui.update_geodata()
 
         config = ui.read_config()
         select = ui.read_selected_theme()
