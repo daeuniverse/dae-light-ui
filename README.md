@@ -1,9 +1,5 @@
 # dae-light-ui
 
-<p align="center" width="100%">
-  <img width="100" src="dashboard/public/logo.svg" />
-</p>
-
 ## What this project is for
 
 A lightweight dashboard for [dae](https://github.com/v2raya/dae)
@@ -20,6 +16,8 @@ Alternatively, please consider adopting [daed](https://github.com/v2raya/daed), 
 👷 This project is currently under development.
 
 ## Preview
+
+<img width="1309" alt="image" src="https://github.com/daeuniverse/dae-light-ui/assets/31861128/888d49d2-3464-4994-83c1-98e55dd681c0">
 
 ## Bootstrap
 
