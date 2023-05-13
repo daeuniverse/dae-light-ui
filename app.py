@@ -10,6 +10,13 @@ from flask import Flask, render_template, request
 app = Flask(__name__, template_folder="templates")
 
 
+class Config:
+    def __init__(self):
+        self.debug = True if os.getenv("DEBUG") == "yes" else False
+        self.config_path = os.getenv("CONFIG_PATH", "/config")
+        self.dae_bin_path = os.getenv("DAE_BIN_PATH", "/usr/bin/dae")
+
+
 class Logger:
     def __new__(cls):
         cls._logger = super().__new__(cls)
@@ -25,9 +32,10 @@ class Logger:
 
 
 class UI:
-    def __init__(self) -> None:
+    def __init__(self, config: Config) -> None:
         self.logger = Logger()
         self.selected_theme = "neat"
+        self.config = config
 
     def read_selected_theme(self) -> str:
         return self.selected_theme
@@ -36,16 +44,16 @@ class UI:
         self.selected_theme = theme
 
     def read_config(self) -> Any:
-        with open(os.getenv("CONFIG_PATH"), "r") as f:
+        with open(self.config.config_path, "r") as f:
             config = f.read()
         return config
 
     def write_config(self, config) -> None:
-        with open(os.getenv("CONFIG_PATH"), "w") as f:
+        with open(self.config.config_path, "w") as f:
             f.write(config)
 
     def reload_dae(self):
-        subprocess.call([os.getenv("DAE_BIN_PATH"), "reload"])
+        subprocess.call([self.config.dae_bin_path, "reload"])
         self.logger.info("config reloaded!")
 
     def start_dae(self):
@@ -97,7 +105,8 @@ def journal():
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    ui = UI()
+    config = Config()
+    ui = UI(config)
     config = ui.read_config()
     select = ui.read_selected_theme()
     if request.method == "POST":
@@ -129,4 +138,4 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=Config().debug)
