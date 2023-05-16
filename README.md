@@ -18,7 +18,7 @@ Alternatively, please consider adopting [daed](https://github.com/daeuniverse/da
 
 ## Preview
 
-<img width="1309" alt="image" src="https://github.com/daeuniverse/dae-light-ui/assets/31861128/888d49d2-3464-4994-83c1-98e55dd681c0">
+<img width="1658" alt="image" src="https://github.com/daeuniverse/dae-light-ui/assets/31861128/3d616287-7f27-4445-958a-b70bfad052cf">
 
 ## Bootstrap
 
