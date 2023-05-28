@@ -38,6 +38,7 @@ RUN apt-get clean autoclean && \
 WORKDIR /app
 
 COPY templates/ ./templates/
+COPY static/ ./static/
 COPY --from=builder /app/dist/app/ ./
 
 RUN chmod +x ./app
