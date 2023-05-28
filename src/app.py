@@ -1,11 +1,12 @@
 # coding=utf8
 import subprocess
+
 from flask import Flask, render_template, request
 
 from config import Config
 from ui import UI
 
-app = Flask(__name__, template_folder="templates")
+app = Flask(__name__)
 
 config = Config()
 ui = UI(config)
@@ -44,7 +45,10 @@ def index():
         select = ui.read_selected_theme()
 
     return render_template(
-        "index.html", config=config, select=select, runtime=ui.get_dae_runtime()
+        "index.html",
+        config=config,
+        select=select,
+        runtime=ui.get_dae_runtime(),
     )
 
 

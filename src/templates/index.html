@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 <head>
-	<meta charset="utf-8" />
+	<meta charset="UTF-8" />
 	<title>Dae Lite UI</title>
 	<!--codemirror必须引入的-->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.css" rel="stylesheet" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.js"></script>
 	<!--引入css文件，用以支持主题-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/3024-day.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/3024-night.css">
@@ -72,33 +71,12 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/darcula.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/yonce.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/zenburn.css">
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/fold/foldgutter.css" />
 	<!--自动补全-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/hint/show-hint.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/hint/show-hint.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/hint/anyword-hint.js"></script>
-	<!--对光标所在行和选中区域高亮-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/selection/active-line.js"></script>
-	<!--javascript代码高亮-->
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/javascript/javascript.min.js"></script>
-	<!--xml代码高亮-->
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/xml/xml.min.js"></script>
-	<!--java代码高亮-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/clike/clike.min.js"></script>
-	<!--括号匹配-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/edit/matchbrackets.js"></script>
 	<!--全屏模式-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/display/fullscreen.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/display/fullscreen.js"></script>
-	<!--支持代码折叠-->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/fold/foldgutter.css" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/fold/foldcode.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/fold/foldgutter.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/fold/brace-fold.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/fold/comment-fold.js"></script>
 
 	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -205,6 +183,28 @@
 
 		<textarea class="form-control" id="code" name="config">{{ config }}</textarea>
 	</form>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/hint/anyword-hint.js"></script>
+	<!--对光标所在行和选中区域高亮-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/selection/active-line.js"></script>
+	<!--javascript代码高亮-->
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/javascript/javascript.min.js"></script>
+	<!--xml代码高亮-->
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/xml/xml.min.js"></script>
+	<!--java代码高亮-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/clike/clike.min.js"></script>
+	<!--括号匹配-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/edit/matchbrackets.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/display/fullscreen.js"></script>
+	<!--支持代码折叠-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/fold/foldcode.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/fold/foldgutter.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/fold/brace-fold.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/fold/comment-fold.js"></script>
 
 	<script type="text/javascript">
 		let editor = CodeMirror.fromTextArea(document.getElementById("code"), {
