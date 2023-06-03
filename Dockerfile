@@ -28,17 +28,17 @@ RUN pyinstaller app.py
 FROM ubuntu:latest as prod
 
 RUN apt update -y && \
-    apt-get install -y --no-install-recommends \
-    ca-certificates libcap-dev
+  apt-get install -y --no-install-recommends \
+  ca-certificates libcap-dev
 
 RUN apt-get clean autoclean && \
-    apt-get autoremove -y && \
-    rm -rf /var/lib/{apt,dpkg,cache,log}/
+  apt-get autoremove -y && \
+  rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 WORKDIR /app
 
-COPY templates/ ./templates/
-COPY static/ ./static/
+COPY src/templates/ ./templates/
+COPY src/static/ ./static/
 COPY --from=builder /app/dist/app/ ./
 
 RUN chmod +x ./app
