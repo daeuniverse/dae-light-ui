@@ -1,0 +1,24 @@
+---
+version: "3.8"
+
+services:
+  dae-light-ui:
+    container_name: dae-light-ui
+    privileged: true
+    build:
+      context: .
+    ports:
+      - 5000:5000
+    environment:
+      CONFIG_PATH: /config
+      DAE_BIN_PATH: /usr/bin/dae
+      THEME: neat
+      DEBUG: yes
+    volumes:
+      - ${CONFIG_PATH}:/config:rw
+      - ${DAE_BIN_PATH}:${DAE_BIN_PATH}
+      - /run/systemd/system/dae.service:/run/systemd/system/dae.service
+      - /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
+      - /usr/bin/systemctl:/usr/bin/systemctl
+      - /var/run/dae.pid:/var/run/dae.pid
+    restart: unless-stopped

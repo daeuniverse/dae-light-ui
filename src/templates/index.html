@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Dae Lite UI</title>
+	<!--codemirror必须引入的-->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.css" rel="stylesheet" />
+	<!--引入css文件，用以支持主题-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/3024-day.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/3024-night.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/abbott.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/abcdef.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/ambiance.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/ayu-dark.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/ayu-mirage.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/base16-dark.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/bespin.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/base16-light.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/blackboard.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/cobalt.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/colorforth.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/dracula.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/duotone-dark.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/duotone-light.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/eclipse.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/elegant.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/erlang-dark.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/gruvbox-dark.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/hopscotch.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/icecoder.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/isotope.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/juejin.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/lesser-dark.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/liquibyte.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/lucario.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/material.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/material-darker.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/material-palenight.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/material-ocean.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/mbo.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/mdn-like.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/midnight.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/monokai.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/moxer.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/neat.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/neo.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/night.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/nord.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/oceanic-next.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/panda-syntax.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/paraiso-dark.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/paraiso-light.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/pastel-on-dark.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/railscasts.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/rubyblue.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/seti.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/shadowfox.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/solarized.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/the-matrix.css">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/tomorrow-night-bright.css">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/tomorrow-night-eighties.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/ttcn.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/twilight.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/vibrant-ink.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/xq-dark.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/xq-light.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/yeti.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/idea.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/darcula.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/yonce.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/zenburn.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/fold/foldgutter.css" />
+	<!--自动补全-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/hint/show-hint.css">
+	<!--全屏模式-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/display/fullscreen.css">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+	<div style="display: flex;">
+		<img src="https://avatars.githubusercontent.com/u/126714249?s=200" width="50" height="50" style="margin-right: 1rem;">
+
+		<div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+			<div style="padding: 1rem;">
+				<a href="/journal" target="_blank">Inspect logs</a>
+			</div>
+		
+			<div style="padding: 1rem;">
+				<a href="https://github.com/daeuniverse/dae/blob/main/example.dae" target="_blank" style="padding: 0.5rem;">example.dae</a>
+				<a href="https://github.com/daeuniverse/dae/blob/main/docs/dns.md" target="_blank" style="padding: 0.5rem;">DNS example</a>
+				<a href="https://github.com/daeuniverse/dae/blob/main/docs/routing.md" target="_blank" style="padding: 0.5rem;">Routing example</a>
+				<a href="https://github.com/daeuniverse/dae" target="_blank">GitHub</a>
+			</div>
+		</div>
+	</div>
+
+	<form method="POST" name="dae">
+		<div style="margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: end;">
+			<div>
+				<div>{{runtime[0]}}</div>
+				<input type="submit" name="action" value="Save">
+				<input type="submit" name="action" value="Restart">
+				<input type="submit" name="action" value="{{runtime[1]}}" id="bstart" style="background-color:{{runtime[2]}}">
+				<input type="submit" name="action" id="submit-btn" value="Update geodata">
+			</div>
+
+			<div>
+				<select onchange="selectTheme()" id="select" name="select">
+					<option selected="">{{ select }}</option>
+					<option>3024-day</option>
+					<option>3024-night</option>
+					<option>abbott</option>
+					<option>abcdef</option>
+					<option>ambiance</option>
+					<option>ayu-dark</option>
+					<option>ayu-mirage</option>
+					<option>base16-dark</option>
+					<option>base16-light</option>
+					<option>bespin</option>
+					<option>blackboard</option>
+					<option>cobalt</option>
+					<option>colorforth</option>
+					<option>darcula</option>
+					<option>dracula</option>
+					<option>duotone-dark</option>
+					<option>duotone-light</option>
+					<option>eclipse</option>
+					<option>elegant</option>
+					<option>erlang-dark</option>
+					<option>gruvbox-dark</option>
+					<option>hopscotch</option>
+					<option>icecoder</option>
+					<option>idea</option>
+					<option>isotope</option>
+					<option>juejin</option>
+					<option>lesser-dark</option>
+					<option>liquibyte</option>
+					<option>lucario</option>
+					<option>material</option>
+					<option>material-darker</option>
+					<option>material-palenight</option>
+					<option>material-ocean</option>
+					<option>mbo</option>
+					<option>mdn-like</option>
+					<option>midnight</option>
+					<option>monokai</option>
+					<option>moxer</option>
+					<option>neat</option>
+					<option>neo</option>
+					<option>night</option>
+					<option>nord</option>
+					<option>oceanic-next</option>
+					<option>panda-syntax</option>
+					<option>paraiso-dark</option>
+					<option>paraiso-light</option>
+					<option>pastel-on-dark</option>
+					<option>railscasts</option>
+					<option>rubyblue</option>
+					<option>seti</option>
+					<option>shadowfox</option>
+					<option>solarized dark</option>
+					<option>solarized light</option>
+					<option>the-matrix</option>
+					<option>tomorrow-night-bright</option>
+					<option>tomorrow-night-eighties</option>
+					<option>ttcn</option>
+					<option>twilight</option>
+					<option>vibrant-ink</option>
+					<option>xq-dark</option>
+					<option>xq-light</option>
+					<option>yeti</option>
+					<option>yonce</option>
+					<option>zenburn</option>
+				</select>
+				<input type="submit" name="action" id="save-theme-btn" value="Save theme">
+			</div>
+		</div>
+
+		<textarea class="form-control" id="code" name="config">{{ config }}</textarea>
+	</form>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/hint/anyword-hint.js"></script>
+	<!--对光标所在行和选中区域高亮-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/selection/active-line.js"></script>
+	<!--javascript代码高亮-->
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/javascript/javascript.min.js"></script>
+	<!--xml代码高亮-->
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/xml/xml.min.js"></script>
+	<!--java代码高亮-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/clike/clike.min.js"></script>
+	<!--括号匹配-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/edit/matchbrackets.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/display/fullscreen.js"></script>
+	<!--支持代码折叠-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/fold/foldcode.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/fold/foldgutter.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/fold/brace-fold.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/fold/comment-fold.js"></script>
+
+	<script type="text/javascript">
+		let editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+			mode: "application/xml",
+			mode: "text/x-javascript",
+			mode: "text/x-java",
+			lineNumbers: true,
+			theme: '{{ select }}',
+			lineWrapping: false,
+			foldGutter: true,
+			gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+			matchBrackets: true,
+			indentWithTabs: false,
+			smartIndent: true,
+			autofocus: true,
+			styleActiveLine: true,
+			extraKeys: { "Ctrl-Space": "autocomplete" }
+			//readOnly: true,
+		});
+
+		editor.setSize(null, '100vh');
+		let input = document.getElementById("select");
+		function selectTheme() {
+			let theme = input.options[input.selectedIndex].textContent;
+			editor.setOption("theme", theme);
+			location.hash = "#" + theme;
+		}
+	</script>
+</html>
